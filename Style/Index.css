@@ -32,12 +32,22 @@ body {
 
 #chat-container {
     border: 1px solid #ccc;
+    display: flex;
     border-radius: 6px;
     width: 100%;
     color: #fff;
     height: 85%;
-    padding: 10px 0px;
+    padding: 10px; 
+    flex-direction: column;
     margin-bottom: 20px;
+    overflow-y: auto;
+    word-wrap: break-word;
+}
+
+
+.new-line {
+    clear: both;
+    display: block;
 }
 
 .input-container {
@@ -54,8 +64,9 @@ body {
     margin-right: 10px;
     border: 1px solid #ccc;
     border-radius: 6px;
-    overflow-y: scroll;
     max-width: calc(100% - 10px - 20px - 10px);
+    overflow-y: auto;
+    word-wrap: break-word;
 }
 
 #submit-btn {
@@ -76,12 +87,39 @@ h1 {
     font-size: 40px;
 }
 
-#chat-container .left-message {
-    text-align: left;
-    margin-left: 20px; 
+.message {
+    margin-bottom: 20px; 
+    padding: 10px; 
+    border-radius: 10px; 
+    background-color: #007bff; 
+    color: #fff; 
+    word-wrap: break-word; 
 }
 
-#chat-container .right-message {
-    text-align: right;
-    margin-right: 20px; 
+.message-container {
+    margin-bottom: 10px; 
+    flex-direction: row;
+    display: flex; 
+    clear: both; 
+    width: 100%;
+}
+
+.left-message {
+    padding-left: 15px;
+    justify-content: start;
+}
+
+.right-message {
+    padding-right: 15px;
+    justify-content: end;
+}
+
+.left-css {
+    background-color: #007bff; 
+    color: #fff; 
+}
+
+.right-css {
+    background-color: #28a745; 
+    color: #fff; 
 }

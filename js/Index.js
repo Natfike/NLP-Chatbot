@@ -20,9 +20,22 @@ function sendMessage() {
 
 function addMessageToChat(message) {
     var chatContainer = document.getElementById('chat-container');
-    var messageElement = document.createElement('div');
+    var messageContainer = document.createElement('div'); 
+    var messageElement = document.createElement('div'); 
     messageElement.textContent = message;
-    messageElement.classList.add(chatContainer.children.length % 2 === 0 ? 'left-message' : 'right-message');
-    chatContainer.appendChild(messageElement);
+    messageContainer.classList.add(chatContainer.children.length % 2 === 0 ? 'left-message' : 'right-message');
+    messageElement.classList.add(chatContainer.children.length % 2 === 0 ? 'left-css' : 'right-css');    
+    messageElement.classList.add('message'); 
+    messageContainer.appendChild(messageElement); 
+    messageContainer.classList.add('message-container'); 
+    messageContainer.classList.add('text-width');
+
+    if (chatContainer.children.length > 0) {
+        messageContainer.classList.add('new-line');
+    }
+    
+    chatContainer.appendChild(messageContainer); 
     chatContainer.scrollTop = chatContainer.scrollHeight;
 }
+
+
