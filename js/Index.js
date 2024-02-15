@@ -15,7 +15,25 @@ function sendMessage() {
     if (message !== '') {
         addMessageToChat(message);
         messageInput.value = '';
+        askMessageAPI(message)
     }
+}
+
+function askMessageAPI(message){
+        var jsonData = { input: message };
+        var jsonString = JSON.stringify(jsonData);
+        $.ajax({
+            url: "http://localhost:5010/askBOWChatbot",
+            type: "POST",
+            contentType: "application/json",
+            data: jsonString,
+            success: function(data) {
+                addMessageToChat(data)
+            },
+            error: function(xhr, status, error) {
+                console.error("Erreur:", error);
+            }
+        });
 }
 
 function addMessageToChat(message) {
